@@ -1,0 +1,11 @@
+<div *ngIf="brandsDataLoaded==false" class="spinner-border text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="form-floating">
+  <select #brandList class="form-select" aria-label="Marka adı" (change)="routeTo(('/brand/' + brandList.value))">
+    <option value="" selected disabled hidden>Marka seçiniz</option>
+    <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+  </select>
+  <label for="brandList">Filtrelenecek Marka</label>
+</div>
